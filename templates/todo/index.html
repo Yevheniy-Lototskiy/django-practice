@@ -13,7 +13,14 @@
     {% if tasks %}
       {% for task in tasks %}
         <hr>
-        <p class="text-muted"><strong>{{ task.content }}</strong> Done</p>
+        <p class="text-muted">
+          <strong>{{ task.content }}</strong>
+          {% if task.status %}
+            <strong style="color: green">Done</strong>
+          {% else %}
+            <strong style="color: red">Not done</strong>
+          {% endif %}
+        </p>
         <p>Created: {{ task.created_at }}</p>
         <p>
           Tags:

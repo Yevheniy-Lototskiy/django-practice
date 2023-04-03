@@ -12,7 +12,12 @@
         <hr>
         <p class="text-muted"><strong>{{ task.content }}</strong> Done</p>
         <p>Created: {{ task.created_at }}</p>
-        <p>Tags: {{ task.tags.all }}</p>
+        <p>
+          Tags:
+          {% for tag in task.tags.all %}
+            {{ tag.name }}
+          {% endfor %}
+        </p>
       {% endfor %}
     {% else %}
       <p>There are no tasks...</p>

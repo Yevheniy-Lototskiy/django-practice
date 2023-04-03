@@ -43,3 +43,10 @@ class TaskCreateView(generic.CreateView):
     fields = ["content", "deadline", "tags"]
     success_url = reverse_lazy("todo:index")
     template_name = "todo/task_form.html"
+
+
+class TaskUpdateView(generic.UpdateView):
+    model = Task
+    fields = ["content", "deadline", "tags"]
+    success_url = reverse_lazy("todo:index")
+    template_name = "todo/task_form.html"

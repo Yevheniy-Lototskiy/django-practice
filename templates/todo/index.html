@@ -20,6 +20,7 @@
           {% for tag in task.tags.all %}
             {{ tag.name }}
           {% endfor %}
+          <a href="{% url 'todo:task-update' pk=task.id %}">Update</a>
         </p>
       {% endfor %}
     {% else %}

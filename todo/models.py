@@ -13,13 +13,13 @@ class Tag(models.Model):
 
 class Task(models.Model):
     content = models.TextField()
-    task_created = models.DateTimeField()
+    created_at = models.DateTimeField(auto_now=True)
     deadline = models.DateTimeField(null=True, blank=True)
-    task_done = models.BooleanField()
+    status = models.BooleanField()
     tags = models.ManyToManyField(Tag, related_name="tasks")
 
     class Meta:
         ordering = ["deadline"]
 
     def __str__(self):
-        return f"{self.content} (Tags: {self.tags}"
+        return f"{self.content}"

@@ -17,9 +17,23 @@
           <strong>{{ task.content }}</strong>
           {% if task.status %}
             <strong style="color: green">Done</strong>
+            <a style="float: right" href="{% url 'todo:task-complete' pk=task.id %}" class="btn btn-secondary">Undo</a>
+{#            <button onclick="{% url 'tod:task-complete' pk=task.id %}">Undo</button>#}
           {% else %}
             <strong style="color: red">Not done</strong>
+            <a style="float: right" href="{% url 'todo:task-undo' pk=task.id %}" class="btn btn-success">Complete</a>
+{#            <button onclick="{% url 'tod:task-undo' pk=task.id %}">Complete</button>#}
           {% endif %}
+{#              Drivers#}
+{#    {% if request.user in car.drivers.all %}#}
+{#      <a href="{% url 'taxi:assign-driver' pk=car.id %}" class="btn btn-danger link-to-page">#}
+{#        Delete me from this car#}
+{#      </a>#}
+{#    {% else %}#}
+{#      <a href="{% url 'taxi:assign-driver' pk=car.id %}" class="btn btn-success link-to-page">#}
+{#        Assign me to this car#}
+{#      </a>#}
+{#    {% endif %}#}
         </p>
         <p>Created: {{ task.created_at }}</p>
         <p>

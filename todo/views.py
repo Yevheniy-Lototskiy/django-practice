@@ -1,3 +1,11 @@
 from django.shortcuts import render
 
-# Create your views here.
+from todo.models import Task
+
+
+def index(request):
+    context = {
+        "tasks": Task.objects.all()
+    }
+
+    return render(request, "todo/index.html", context=context)

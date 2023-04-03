@@ -23,7 +23,12 @@
             <a style="float: right" href="{% url 'todo:task-undo' pk=task.id %}" class="btn btn-success">Complete</a>
           {% endif %}
         </p>
-        <p>Created: {{ task.created_at }}</p>
+        <p>
+          Created: {{ task.created_at }}
+          {% if task.deadline %}
+            Deadline: {{ task.deadline }}
+          {% endif %}
+        </p>
         <p>
           Tags:
           {% for tag in task.tags.all %}

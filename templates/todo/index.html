@@ -5,7 +5,10 @@
 {% endblock %}
 
 {% block content %}
-  <h3>TODO list</h3>
+  <h3>
+    TODO list
+    <a style="float: right" href="{% url 'todo:task-create' %}" class="btn btn-primary">Add Task</a>
+  </h3>
   <ul>
     {% if tasks %}
       {% for task in tasks %}
